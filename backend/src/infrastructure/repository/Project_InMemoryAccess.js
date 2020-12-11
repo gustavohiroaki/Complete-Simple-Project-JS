@@ -21,4 +21,4 @@ class ProjectInMemoryAccess {
   }
 }
 
-module.exports = new ProjectInMemoryAccess();
+module.exports = ProjectInMemoryAccess;

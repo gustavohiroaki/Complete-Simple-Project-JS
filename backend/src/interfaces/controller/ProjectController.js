@@ -1,4 +1,4 @@
-const ProjectInMemoryAccess = require("../../infrastructure/repository/Project_InMemoryAccess");
+const ProjectInMemoryAccess = require("../../infrastructure/config/serviceLocator");
 
 const CreateProject = require("../../application/useCases/CreateProject");
 const ListProject = require("../../application/useCases/ListProject");
