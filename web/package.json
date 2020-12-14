@@ -8,8 +8,10 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
+    "axios": "^0.21.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "style-loader": "^2.0.0",
@@ -19,6 +21,7 @@
   },
   "scripts": {
     "dev": "webpack serve --mode development",
-    "commit": "cz"
+    "commit": "cz",
+    "build": "webpack --mode production"
   }
 }

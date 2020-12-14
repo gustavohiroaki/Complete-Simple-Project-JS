@@ -28,6 +28,10 @@ module.exports = {
         exclude: /node_modules/,
         use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
+      {
+        test: /.*\.(gif|png|jpg?g)$/i,
+        use: { loader: "file-loader" },
+      },
     ],
   },
 };
