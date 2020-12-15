@@ -1,0 +1,13 @@
+header {
+  width: 100vw;
+  height: 45px;
+
+  box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+}

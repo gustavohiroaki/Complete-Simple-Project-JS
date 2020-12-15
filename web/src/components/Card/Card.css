@@ -1,0 +1,26 @@
+.Card {
+  width: 25vw;
+  height: 150px;
+
+  padding: 15px;
+
+  border-radius: 15px;
+  background-color: #ddd;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#props {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#buttons {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
