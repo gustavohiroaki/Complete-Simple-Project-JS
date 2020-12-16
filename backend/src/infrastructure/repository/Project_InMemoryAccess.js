@@ -15,7 +15,7 @@ class ProjectInMemoryAccess {
     return returnedData;
   }
   delete(id) {
-    const returnedData = ProjectInMemory.update(id);
+    const returnedData = ProjectInMemory.delete(id);
 
     return returnedData;
   }
