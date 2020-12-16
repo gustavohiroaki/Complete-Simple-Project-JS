@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "./services/api";
+import { getProjects, postProject, deleteProject } from "./domain/Projects";
 
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -12,39 +12,33 @@ export default function App() {
   const [owner, setOwner] = useState("");
 
   useEffect(() => {
-    api.get("project").then((apiProjects) => {
-      setProjects(apiProjects.data);
-    });
+    loadProjects();
   }, []);
 
-  useEffect(() => {
-    console.log("Title:", title);
-    console.log("Owner:", owner);
-  }, [title, owner]);
+  async function loadProjects() {
+    const response = await getProjects();
+    setProjects(response);
+  }
 
-  async function handleSubmit(e) {
+  async function handleSubmitProject(e) {
     e.preventDefault();
-    const postProject = await api.post("project", {
-      title,
-      owner,
-    });
+    const postReturnProject = await postProject({ title, owner });
 
-    function removeThisCard(id) {
-      console.log(id);
-    }
-
-    const apiPostProject = postProject.data;
-
-    setProjects([...projects, apiPostProject]);
+    setProjects([...projects, postReturnProject]);
     setTitle("");
     setOwner("");
+  }
+
+  async function handleDeleteProject(id) {
+    await deleteProject(id);
+    loadProjects();
   }
 
   return (
     <>
       <Header />
       <main>
-        <form onSubmit={handleSubmit} id="form-projects">
+        <form onSubmit={handleSubmitProject} id="form-projects">
           <h1>New Projects</h1>
           <input
             type="text"
@@ -67,6 +61,7 @@ export default function App() {
               key={project.id}
               title={project.title}
               owner={project.owner}
+              remove={() => handleDeleteProject(project.id)}
             />
           ))}
         </div>
